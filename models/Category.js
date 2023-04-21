@@ -1,16 +1,16 @@
-import mongoose from "mongoose";
+import { Schema, model, Types } from "mongoose"
 
-let schema = new mongoose.Schema({
-    name: {type: "string", required: true},
-    color: {type: "string", required: true},
-    hover: {type: "string", required: true},
-    description: {type: "string", required: true},
-    cover_photo: {type: "string", required: true},
-    character_photo: {type: "string", required: true}
+let schema = new Schema({
+    name: {type: String, required: true},
+    color: {type: String, required: true},
+    hover: {type: String, required: true},
+    description: {type: String, required: true},
+    cover_photo: {type: String, required: true},
+    character_photo: {type: String, required: true}
 },{
     timestamps: true,
 })
-let collection = 'companies'
+let collection = 'categories'
 
-let Category = mongoose.models(schema,collection)
+let Category = model(collection, schema)
 export default Category

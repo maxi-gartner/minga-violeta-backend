@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www.js",
-    "dev": "nodemon ./bin/www.js"
+    "dev": "nodemon ./bin/www.js",
+    "data": "node ./models/data/data.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

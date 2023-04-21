@@ -1,34 +1,30 @@
 import 'dotenv/config.js'
-import mongoose from 'mongoose'
+import '../../config/database.js'
 import { users } from './users.js'
 import { authors } from './authors.js'
 import { companies } from './companies.js'
 import { categories } from './categories.js'
 import { mangas_v1 } from './mangas_v1.js'
-import { User } from '../User.js'
-import { Author } from '../Author.js'
-import { Company } from '../Company.js'
-import { Category } from '../Category.js'
-import { Manga } from '../Manga.js'
-import { Chapter } from '../Chapter.js'
-
-mongoose.set('strictQuery', false)
-mongoose.connect(process.env.MONGO)
-    .then(() => console.log('database connected'))
-    .catch(err => console.log(err))
+import User from '../User.js'
+import Author from '../Author.js'
+import Company from '../Company.js'
+import Category from '../Category.js'
+import Manga from '../Manga.js'
+import Chapter from '../Chapter.js'
 
 let newCategories = async(categories) => await Category.insertMany(categories)
+//insertMany es un método de mongoose para insertar muchos documentos en la base de mongo
 
 let newUsers = async(users) => await User.insertMany(users)
 
 let newRoles = async(rol1,rol2) => {
     for (let author of rol1) {
-        let user = await User.findOne({ mail: author.user_id })
+        let user = await User.findOne({ email: author.user_id })
         author.user_id = user._id
         await Author.create(author)
     }
     for (let company of rol2) {
-        let user = await User.findOne({ mail: company.user_id })
+        let user = await User.findOne({ email: company.user_id })
         company.user_id = user._id
         await Company.create(company)
     }
