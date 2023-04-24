@@ -10,12 +10,15 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Minga API' });
+  res.render('index', { 
+    title: 'Minga API',
+    subtitle: 'Subtitle Minga API',
+  });
 });
 
 router.use('/users', userRouter)
 router.use('/authors', autorRouter)
-router.use('/companies', categoryRouter)
+router.use('/categories', categoryRouter)
 router.use('/companies', companyRouter)
 router.use('/chapters', chapterRouter)
 router.use('/mangas', mangaRouter)
