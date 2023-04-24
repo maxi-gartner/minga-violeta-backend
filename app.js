@@ -1,8 +1,3 @@
-//const createError = require('http-errors');
-//const express = require('express');
-//const path = require('path');
-//const cookieParser = require('cookie-parser');
-//const logger = require('morgan');
 import 'dotenv/config.js'
 import './config/database.js'
 import createError from 'http-errors';
