@@ -6,18 +6,22 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors'
+import {__dirname} from './utils.js'
 
 import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
-//const indexRouter = require('./routes/index.js');
-//const usersRouter = require('./routes/users.js');
+import notFound from './middlewares/notFound.js'
+import errorHandler from './middlewares/errorHandler.js'
 
 const app = express();
 
 // view engine setup
-import {__dirname} from './utils.js'
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use((req, res, next) => {
+  console.log('logged')
+  next()
+})
 
 app.use(cors())
 app.use(logger('dev'));
@@ -33,15 +37,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.use(notFound)
+app.use(errorHandler)
 
 export default app;

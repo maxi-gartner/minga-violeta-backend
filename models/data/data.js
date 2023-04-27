@@ -19,7 +19,7 @@ let newUsers = async(users) => await User.insertMany(users)
 
 let newRoles = async(rol1,rol2) => {
     for (let author of rol1) {
-        let user = await User.findOne({ email: author.user_id })
+        let user = await User.findOne({ email: author.user_id })//findOne() se utiliza para encontrar un documento según la condición. Si varios documentos cumplen la condición, devuelve el primer documento que cumple la condición. 
         author.user_id = user._id
         await Author.create(author)
     }

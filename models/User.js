@@ -12,5 +12,5 @@ let schema = new mongoose.Schema({
 });
 let collection = 'users' //debe ser SIEMPRE en plural porque es un conjunto de recursos/datos/documentos y en lo posible
 
-let Users = mongoose.model(collection, schema)
-export default Users
+let User = mongoose.model(collection, schema)
+export default User

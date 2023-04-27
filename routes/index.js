@@ -16,9 +16,14 @@ router.get('/', function(req, res, next) {
   });
 });
 
+const midd1 = (req, res, next) => {
+  console.log('Solo estoy en categories')
+  next()
+}
+
 router.use('/users', userRouter)
 router.use('/authors', autorRouter)
-router.use('/categories', categoryRouter)
+router.use('/categories', midd1,categoryRouter)
 router.use('/companies', companyRouter)
 router.use('/chapters', chapterRouter)
 router.use('/mangas', mangaRouter)
