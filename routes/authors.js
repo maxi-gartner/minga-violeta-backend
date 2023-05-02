@@ -7,7 +7,7 @@ import authorExistsCreate from '../middlewares/authorExistsCreate.js'
 
 let router = Router();
 
-router.get("/read", read)
-router.post('/create', validator(authorCreate), authorExistsCreate, create)
+router.get("/", read)
+router.post('/', validator(authorCreate), authorExistsCreate, create)
 
 export default router;

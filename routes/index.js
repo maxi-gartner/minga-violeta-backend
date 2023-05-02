@@ -16,14 +16,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
-const midd1 = (req, res, next) => {
-  console.log('Se accedio a categories')
-  next()
-}
+
 
 router.use('/auth', userRouter)
 router.use('/authors', autorRouter)
-router.use('/categories', midd1 ,categoryRouter)
+router.use('/categories',categoryRouter)
 router.use('/companies', companyRouter)
 router.use('/chapters', chapterRouter)
 router.use('/mangas', mangaRouter)
