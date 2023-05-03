@@ -10,8 +10,7 @@ let create = async(req, res, next) => {
         let one = await Author.create(req.body)
         return res.status(201).json({
             author: one,
-            success: true,
-            timestamp: one.createdAt
+            success: true
         })
     } catch(error){
         next(error)
