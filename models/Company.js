@@ -6,7 +6,7 @@ let schema = new Schema({
     website: {type: String, required: true},
     description: {type: String, required: true},
     active: {type: Boolean, required: true},
-    user_id: {type: Types.ObjectId, ref: 'users', required: true}
+    user_id: {type: Types.ObjectId, ref: 'users'/* , required: true */}
 },{
     timestamps: true,
 })
