@@ -2,20 +2,6 @@
 import Chapter from '../../models/Chapter.js' 
 import { createChapterSchema } from '../../schemas/chapters.js';
 
-
-// export default async(req,res,next) => {
-//     try {
-//         let one = await Chapter.create(req.body)
-//         return res.status(201).json({
-//             id: one._id,
-//             timestamps: one.createdAt
-//         })
-//     } catch (error) {
-//         next(error)
-//     }
-
-// }
-
 //ruta para crear un capítulo
 let create = async(req,res,next) => {
     try {
