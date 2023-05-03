@@ -1,10 +1,10 @@
 import { Schema, model, Types} from "mongoose"
 
 let schema = new Schema ({
-    author_id: {type: Types.ObjectId, ref: 'authors', required: true},
+    author_id: {type: Types.ObjectId, ref: 'authors', required: false},
     company_id: {type: Types.ObjectId, ref: 'companies',},
     title: {type: String, required: true},
-    cover_photo: {type: String, required: true},
+    cover_photo: {type: String, required: false},
     description: {type: String, required: true},
     category_id: {type: Types.ObjectId, ref: 'categories',required: true},
 },{

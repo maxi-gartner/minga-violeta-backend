@@ -1,6 +1,6 @@
 import Manga from '../../models/Manga.js'
 
-export default async(req, res, next) => {
+let create = async(req, res, next) => {
     try {
         let one = await Manga.create(req.body)
         return res.status(201).json({
@@ -11,3 +11,5 @@ export default async(req, res, next) => {
         next (error)
     }
 }
+
+export default create

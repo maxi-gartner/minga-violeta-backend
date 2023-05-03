@@ -1,5 +1,5 @@
 import express from 'express';
-import userRouter from './users.js'
+import userRouter from './auth.js'
 import autorRouter from './authors.js'
 import categoryRouter from './categories.js'
 import companyRouter from './companies.js'
@@ -16,14 +16,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
-const midd1 = (req, res, next) => {
-  console.log('Solo estoy en categories')
-  next()
-}
 
-router.use('/users', userRouter)
+
+router.use('/auth', userRouter)
 router.use('/authors', autorRouter)
-router.use('/categories', midd1,categoryRouter)
+router.use('/categories',categoryRouter)
 router.use('/companies', companyRouter)
 router.use('/chapters', chapterRouter)
 router.use('/mangas', mangaRouter)
