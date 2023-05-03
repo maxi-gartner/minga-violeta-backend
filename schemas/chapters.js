@@ -3,6 +3,7 @@ import Joi from "joi";
 //objeto de esquema Joi que define la forma de los datos de entrada que se espera para la creación de un capítulo:
 export const createChapterSchema = Joi.object({
   manga_id: Joi.string()
+<<<<<<< HEAD
             .min(4)
             .required()
             .messages({
@@ -44,4 +45,25 @@ export const createChapterSchema = Joi.object({
                       'string.empty': 'ORDER_REQUIRED',
                       'string.number': 'ORDER_NUMBER_REQUIRED'
 })
+=======
+  .min(4)
+  .required()
+  .message({
+    "string.min": "manga_id required "
+  }),
+
+  title: Joi.string()
+  .min(2)
+  .max(30)
+  .required(),
+  cover_photo: Joi.string()
+  .uri(),
+  pages: Joi.array()
+  .items(Joi.string().uri())
+  .required(),
+  order: Joi.number()
+  .integer()
+  .min(1)
+  .required(),
+>>>>>>> edb51f1ce17507dd71b1bf7eeff0330cd43fa8b6
 });
