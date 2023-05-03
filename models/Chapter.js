@@ -3,9 +3,9 @@ import { Schema, model, Types} from "mongoose"
 let schema = new Schema ({
     manga_id: { type: Types.ObjectId, ref:'mangas' ,required: true},
     title: { type: String, required: true},
-    cover_photo: { type: String, required: true},
+    cover_photo: { type: String, required: false},
     pages: [{ type: String, required: true}],
-    order: { type: String, required: true},
+    order: { type: Number, required: true},
 },{
     timestamps: true,
 
