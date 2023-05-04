@@ -5,7 +5,7 @@ export const createChapterSchema = Joi.object({
   manga_id: Joi.string()
   .min(4)
   .required()
-  .message({
+  .messages({
     "string.min": "manga_id required "
   }),
 
