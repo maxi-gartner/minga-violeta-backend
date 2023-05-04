@@ -46,6 +46,5 @@ export const authorCreate = joi.object({
         'string.uri': 'INVALID_URL',
     }),
     active: joi.boolean()
-        .required(),
-    user_id: joi.required()
+        .required()
 })
