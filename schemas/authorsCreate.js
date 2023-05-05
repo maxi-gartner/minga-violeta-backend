@@ -11,9 +11,7 @@ export const authorCreate = joi.object({
         }),
     last_name: joi.string()
         .max(30)
-        .required()
         .messages({
-            'any.required': 'LAST_NAME_REQUIRED',
             'string.empty': 'LAST_NAME_REQUIRED',
             'string.max': 'LAST_NAME_TOO_LARGE'
         }),
@@ -35,7 +33,6 @@ export const authorCreate = joi.object({
         }),
     date: joi.date()
         .raw()
-        .required()
         .messages({
         'any.required': 'DATE_REQUIRED'
     }),
