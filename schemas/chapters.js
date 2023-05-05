@@ -5,10 +5,6 @@ export const createChapterSchema = Joi.object({
   
   manga_id: Joi.string()
             .min(4)
-<<<<<<< HEAD
-            .required(),
-            
-=======
             .required()
             .messages({
               'string.base': `"manga_id" should be a string`,
@@ -16,7 +12,6 @@ export const createChapterSchema = Joi.object({
               'any.required': `"manga_id" is required`
             }),
   
->>>>>>> b17d2eae6e8dca1292135f5f09b295b633762d80
   title: Joi.string()
             .min(2)
             .max(30)
