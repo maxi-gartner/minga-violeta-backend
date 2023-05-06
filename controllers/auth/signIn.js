@@ -6,7 +6,7 @@ let signIn = async (req, res, next) => {
     let is_online = true;
       Auth.findOneAndUpdate({ email: req.body.email }, { is_online: true })
       const token = jwt.sign(
-          { id: req.user.id },
+          { id: req.user._id },
           process.env.SECRET,
           {expiresIn : 60*60*24}
       )
