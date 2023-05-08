@@ -11,13 +11,10 @@ let get_one = async(req,res,next) => {
                     response: one
                 })
             }
-            else {
-                return res.status(404).json({
-                    success: false,
-                    message: 'Chapter not found'
-                })
-            }
-        
+            return res.status(404).json({
+                success: false,
+                message: 'Chapter not found'
+            })  
     }
     catch (error) {
         next(error)
