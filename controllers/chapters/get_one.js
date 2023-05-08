@@ -5,10 +5,19 @@ let get_one = async(req,res,next) => {
         let one = await Chapter.findOne({
             _id: req.params.id}, 'pages -_id')
 
-        return res.status(200).json({
-            success: true,
-            response: one
-        })
+            if(one){
+                return res.status(200).json({
+                    success: true,
+                    response: one
+                })
+            }
+            else {
+                return res.status(404).json({
+                    success: false,
+                    message: 'Chapter not found'
+                })
+            }
+        
     }
     catch (error) {
         next(error)
