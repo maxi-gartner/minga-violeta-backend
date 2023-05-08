@@ -5,31 +5,31 @@ export const companiesCreate = joi.object({
         .max(30)
         .required()
         .messages({
-            'any.required': 'NAME_REQUIRED',
-            'string.empty': 'NAME_REQUIRED',
-            'string.max': 'NAME_TOO_LARGE'
+            'any.required': 'Name required',
+            'string.empty': 'Name required',
+            'string.max': 'Name too large'
         }),
     logo: joi.string()
         .uri()
         .messages({
-        'string.empty': 'LOGO_REQUIRED',
-        'string.uri': 'INVALID_LOGO_URL',
+        'string.empty': 'Logo required',
+        'string.uri': 'Invalid logo URL',
         }),
     website: joi.string()
         .uri()
         .messages({
-        'string.empty': 'WEBSITE_REQUIRED',
-        'string.uri': 'INVALID_WEBSITE_URL',
+        'string.empty': 'Website URL required',
+        'string.uri': 'Invalid website URL',
         }),
     description: joi.string()
         .min(5)
         .max(300)
         .required()
         .messages({
-            'any.required': 'DESCRIPTION_REQUIRED',
-            'string.empty': 'DESCRIPTION_REQUIRED',
-            'string.min': 'DESCRIPTION_TOO_SHORT',
-            'string.max': 'DESCRIPTION_TOO_LARGE'
+            'any.required': 'Description required',
+            'string.empty': 'Description required',
+            'string.min': 'Description too large',
+            'string.max': 'Description too large'
         }),
     active: joi.boolean(),
     user_id: joi.string(),
