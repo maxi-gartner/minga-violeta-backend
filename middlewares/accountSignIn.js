@@ -16,7 +16,9 @@ async function accountExistsSignIn(req, res, next) {
   }
   return res
     .status(400)
-    .json({ success: false, message: "User does not exist!" });
+    .json({ success: false, 
+            message: ["User does not exist!"] 
+            });
 }
 
 export default accountExistsSignIn;

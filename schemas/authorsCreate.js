@@ -5,42 +5,42 @@ export const authorCreate = joi.object({
         .max(30)
         .required()
         .messages({
-            'any.required': 'NAME_REQUIRED',
-            'string.empty': 'NAME_REQUIRED',
-            'string.max': 'NAME_TOO_LARGE'
+            'any.required': 'Name required',
+            'string.empty': 'Name required',
+            'string.max': 'Name too large'
         }),
     last_name: joi.string()
         .max(30)
         .messages({
-            'string.empty': 'LAST_NAME_REQUIRED',
-            'string.max': 'LAST_NAME_TOO_LARGE'
+            'string.empty': 'Last name required',
+            'string.max': 'Last name too large'
         }),
     city: joi.string()
         .max(30)
         .required()
         .messages({
-            'any.required': 'CITY_REQUIRED',
-            'string.empty': 'CITY_REQUIRED',
-            'string.max': 'CITY_TOO_LARGE'
+            'any.required': 'Name city required',
+            'string.empty': 'Name city required',
+            'string.max': 'Name city too large'
         }),
     country: joi.string()
         .max(30)
         .required()
         .messages({
-            'any.required': 'COUNTRY_REQUIRED',
-            'string.empty': 'COUNTRY_REQUIRED',
-            'string.max': 'COUNTRY_TOO_LARGE'
+            'any.required': 'Country required',
+            'string.empty': 'Country required',
+            'string.max': 'Country too large'
         }),
     date: joi.date()
         .raw()
         .messages({
-        'any.required': 'DATE_REQUIRED'
+        'any.required': 'Date required'
     }),
     photo: joi.string()
         .uri()
         .messages({
-        'string.empty': 'IMG_REQUIRED',
-        'string.uri': 'INVALID_URL',
+        'string.empty': 'Img required',
+        'string.uri': 'Invalid URL',
     }),
     active: joi.boolean()
         .required()
