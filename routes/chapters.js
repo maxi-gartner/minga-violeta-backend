@@ -1,5 +1,6 @@
 import {Router} from 'express';
 
+import get_chapters from '../controllers/chapters/get_chapters.js';
 import read from '../controllers/chapters/read.js';
 import create from '../controllers/chapters/create.js';
 import validator from '../middlewares/validator.js'
@@ -9,7 +10,8 @@ import chapterExistsCreate from '../middlewares/chapterExistCreate.js';
 
 let router = Router();
 
-router.get("/", read)
+router.get("/:manga_id", get_chapters)
+//router.get("/", read)
 router.post('/', /* passport.authenticate('jwt', {session: false}), */ validator(createChapterSchema), chapterExistsCreate, create)
 
 export default router

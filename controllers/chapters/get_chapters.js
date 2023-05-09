@@ -1,12 +1,12 @@
 import createHttpError from 'http-errors'
-import Manga from './../../models/Manga.js'
+import Chapter from '../../models/Chapter.js'
 
 let one = async (req, res, next) => {
     try {
         let {manga_id} = req.params
-        let one = await Manga.findOne({
-            _id: manga_id
-            },'title cover_photo')
+        let one = await Chapter.findOne({
+            manga_id: manga_id
+            }, "order title cover_photo pages -_id")
         return res.status(200).json({
             success: 'ok',
             response: one
