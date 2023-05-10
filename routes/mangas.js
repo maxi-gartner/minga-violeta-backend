@@ -4,9 +4,10 @@ import get_one from "../controllers/mangas/get_one.js"
 import create from '../controllers/mangas/create.js'
 import validator from '../middlewares/validator.js'
 import { mangasCreate } from '../schemas/mangas.js';
+import passport from '../middlewares/passport.js'
 let router = Router();
 
-router.get("/:id", get_one)
+router.get("/:id",passport.authenticate('jwt', {session: false}), get_one)
 router.get("/", read)
 router.post('/', validator(mangasCreate), create)
 

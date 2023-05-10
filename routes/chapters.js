@@ -10,7 +10,7 @@ import passport from '../middlewares/passport.js';
 
 let router = Router();
 
-router.get("/?manga_id", read)
+router.get("/?manga_id",passport.authenticate('jwt', {session: false}), read)
 router.get("/", get_chapters)
 router.post('/', passport.authenticate('jwt', {session: false}), validator(createChapterSchema), chapterExistsCreate, create)
 
