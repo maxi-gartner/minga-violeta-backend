@@ -11,6 +11,7 @@ import one from '../controllers/chapters/get_one.js';
 
 let router = Router();
 
+router.get('/', read)
 router.get('/:id', passport.authenticate('jwt', {session: false}), one)
 router.get("/?manga_id", passport.authenticate('jwt', {session: false}), read)
 router.get("/", get_chapters)
