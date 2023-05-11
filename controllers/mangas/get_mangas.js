@@ -11,7 +11,7 @@ let read = async (req, res, next) => {
     if (req.query.title) {
         queries.title = new RegExp(req.query.title.trim(), "i")
         pagination = {
-            limit: 10,
+            limit: 6,
             page: 1
         }
     }
@@ -38,11 +38,12 @@ let read = async (req, res, next) => {
             .limit(pagination.limit > 0 ? pagination.limit : 0)
             .populate('category_id')
         let count = await Manga
-            .estimatedDocumentCount()
+            .countDocuments(queries)
+        let pages = Math.ceil(count / pagination.limit)
         res.status(200).json({
             success: true,
             response: all,
-            count: count
+            count: pages
         })
     } catch (error) {
         next(error)
