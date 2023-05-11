@@ -10,6 +10,10 @@ let read = async (req, res, next) => {
     console.log(req.query)
     if (req.query.title) {
         queries.title = new RegExp(req.query.title.trim(), "i")
+        pagination = {
+            limit: 10,
+            page: 1
+        }
     }
     if (req.query.category_id) {
         queries.category_id = req.query.category_id.split(',')
@@ -28,16 +32,20 @@ let read = async (req, res, next) => {
     try {
         let all = await Manga
             .find(queries)
+            .select("name title cover_photo description category_id")
             .sort(sort)
             .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
             .limit(pagination.limit > 0 ? pagination.limit : 0)
-        return res.status(200).json({
+            .populate('category_id')
+        let count = await Manga
+            .estimatedDocumentCount()
+        res.status(200).json({
             success: true,
-            response: all
+            response: all,
+            count: count
         })
     } catch (error) {
         next(error)
     }
 }
-
 export default read
