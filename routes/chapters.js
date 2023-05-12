@@ -10,6 +10,7 @@ import one from '../controllers/chapters/get_one.js';
 
 let router = Router();
 
+router.get('/', read)
 router.get('/:id', passport.authenticate('jwt', {session: false}), one)
 router.get("/", passport.authenticate('jwt', {session: false}), get_chapters)
 router.get("/", read)
