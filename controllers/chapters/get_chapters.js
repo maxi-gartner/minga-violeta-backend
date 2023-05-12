@@ -23,7 +23,7 @@ let read = async (req, res, next) => {
     console.log(queries);
     try {
         let all = await Chapter
-            .find(queries, "-_id order title cover_photo")
+            .find(queries, "order title cover_photo")
             .sort(sort)
             .skip(pagination.page > 0 ? (pagination.page-1)*pagination.limit : 0)
             .limit(pagination.limit > 0 ? pagination.limit : 0)
