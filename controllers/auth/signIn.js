@@ -1,10 +1,10 @@
-import Auth from "../../models/Auth.js";
+import User from "../../models/User.js";
 import  jwt  from "jsonwebtoken";
 
 let signIn = async (req, res, next) => {
   try {
     let is_online = true;
-      Auth.findOneAndUpdate({ email: req.body.email }, { is_online: true })
+    User.findOneAndUpdate({ email: req.body.email }, { is_online: true })
       const token = jwt.sign(
           { id: req.user.id },
           process.env.SECRET,
