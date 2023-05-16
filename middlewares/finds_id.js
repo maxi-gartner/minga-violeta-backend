@@ -23,7 +23,7 @@ async function finds_id(req, res, next){
     catch (error) {
       return res.status(500).json({
         success: false,
-        message: [{error: error.message}]
+        message: [error.message]
       })
     }
 }
