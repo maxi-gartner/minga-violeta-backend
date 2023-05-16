@@ -1,6 +1,7 @@
 import passport from "passport"
 import passportJwt from "passport-jwt"
-import Auth from "../models/Auth.js"
+// import Auth from "../models/Auth.js"
+import User from "../models/User.js"
 
 
 passport.use(
@@ -11,7 +12,7 @@ passport.use(
     async (jwt_payload,done) => {
         //console.log("jwt_payload", jwt_payload);
         try {				
-            let user = await Auth.findOne({_id:jwt_payload.id})
+            let user = await User.findOne({_id:jwt_payload.id})
             if (user) {		
                 return done(null, user)
             } else {
