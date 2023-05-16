@@ -7,10 +7,11 @@ import validator from '../middlewares/validator.js'
 import { mangasCreate } from '../schemas/mangas.js';
 import titleExistsCreate from '../middlewares/exists_title.js.js';
 import get_me from "../controllers/mangas/get_me.js"
+import finds_id from '../middlewares/finds_id.js'
 
 
 let router = Router();
-router.get("/me", passport.authenticate('jwt', {session: false}), get_me)
+router.get("/me", passport.authenticate('jwt', {session: false}), finds_id, get_me)
 router.get('/', passport.authenticate('jwt', {session: false}), read)
 router.post('/', passport.authenticate('jwt', {session: false}), validator(mangasCreate), titleExistsCreate, create)
 router.get("/:id",passport.authenticate('jwt', {session: false}), get_one)
