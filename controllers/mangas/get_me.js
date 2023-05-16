@@ -1,10 +1,12 @@
-import createHttpError from 'http-errors'
 import Manga from '../../models/Manga.js'
 
 let me = async (req, res, next) => {
     try {
-        console.log(req.user);
-        let me = await Manga.find()
+        const id = req.body.author_id
+        console.log(id);
+        let me = await Manga.find({
+            author_id: id
+        }, "-_id")
         return res.status(200).json({
             success: 'ok',
             response: me
