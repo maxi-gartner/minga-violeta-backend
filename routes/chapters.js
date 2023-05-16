@@ -11,12 +11,13 @@ import get_me from '../controllers/chapters/get_me.js';
 import update from '../controllers/chapters/update.js';
 import passport from '../middlewares/passport.js';
 import destroy from '../controllers/chapters/destroy.js';
+import isPropertyOf from '../middlewares/is_property_of.js';
 
 
 let router = Router();
 
 
-router.get('/me', passport.authenticate('jwt', {session: false}), finds_id, get_me)
+router.get('/me', passport.authenticate('jwt', {session: false}), finds_id, isPropertyOf, get_me)
 router.get("/", passport.authenticate('jwt', {session: false}), get_chapters)
 router.post('/', passport.authenticate('jwt', {session: false}), validator(createChapterSchema), chapterExistsCreate, create)
 router.get('/:id', passport.authenticate('jwt', {session: false}), one)

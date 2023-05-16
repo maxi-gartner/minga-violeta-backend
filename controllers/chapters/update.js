@@ -6,13 +6,12 @@ const update = async (req, res, next) => {
         if (update.modifiedCount) {
         return res.status(200).json({
             success: true,
-            response: "updated",
-            update,
+            response: "updated"
         });
         } else {
         return res.status(404).json({
             success: false,
-            response: "not found",
+            response: "not found"
         });
         }
     } catch (error) {

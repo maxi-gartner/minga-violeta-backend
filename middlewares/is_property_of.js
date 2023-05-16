@@ -4,8 +4,8 @@ async function isPropertyOf(req, res, next) {
   const manga_id = req.body.manga_id;
   const author_id = req.body.author_id;
 
-  Manga.findOne({ _id: manga_id, author_id: author_id })
-    .then((manga) => {
+  let manga = Manga.findOne({ _id: manga_id, author_id: author_id })
+    try {
         if (manga) {
             return next();
         } 
@@ -14,10 +14,10 @@ async function isPropertyOf(req, res, next) {
             message: "You do not have permission to create a chapter for this manga",
         });
       
-    })
-    .catch((error) => {
-      console.log(error)
-    });
+    }
+    catch(error) {
+      next(error)
+    };
 }
 
 export default isPropertyOf
