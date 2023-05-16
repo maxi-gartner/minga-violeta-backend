@@ -1,8 +1,8 @@
-import Auth from "../models/Auth.js";
+import User from "../models/User.js";
 
 
 async function accountExistsSignIn(req, res, next) {
-  const user = await Auth.findOne({ email: req.body.email });
+  const user = await User.findOne({ email: req.body.email });
   if (user) {
     req.user = {
       id: user.id,
@@ -10,7 +10,7 @@ async function accountExistsSignIn(req, res, next) {
       photo: user.photo,
       password: user.password,
       role: user.role,
-      is_verified: user.is_verified,
+      is_verified: user.verify_code,
     };
     return next();
   }
