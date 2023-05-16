@@ -1,6 +1,5 @@
 import passport from "passport"
 import passportJwt from "passport-jwt"
-// import Auth from "../models/Auth.js"
 import User from "../models/User.js"
 
 
