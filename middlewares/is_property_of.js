@@ -1,23 +1,24 @@
-import Manga from "../models/Manga.js";
+import Manga from '../models/Manga.js'
 
-async function isPropertyOf(req, res, next) {
-  const manga_id = req.body.manga_id;
-  const author_id = req.body.author_id;
-
-  let manga = Manga.findOne({ _id: manga_id, author_id: author_id })
+async function is_property_of(req, res, next){
     try {
-        if (manga) {
+        //console.log(req);
+        let manga = await Manga.findOne({
+            manga_id: req.body.manga_id,
+            author_id: req.body.author_id
+        })
+        //console.log(manga);
+        if(manga){
             return next();
-        } 
-        return res.status(400).json({
+        }
+        return res.status(404).json({
             success: false,
-            message: "You do not have permission to create a chapter for this manga",
-        });
-      
+            message: ['The manga does not belong to the logged in author']
+        }) 
+    } catch (error) {
+        console.log(error)
+        next(error)
     }
-    catch(error) {
-      next(error)
-    };
 }
 
-export default isPropertyOf
+export default is_property_of;
