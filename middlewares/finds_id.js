@@ -4,12 +4,14 @@ import Company from "../models/Company.js"
 async function finds_id(req, res, next){
   try {
       const author = await Author.findOne({ user_id: req.user._id});
-      if (author.active === true) {
+      if (author) {
+        req.body.author_id = author._id;
         return next();
       }
       
       const company = await Company.findOne({ user_id: req.user._id});
-      if (company.active === true) {
+      if (company) {
+        req.body.company_id = company._id;
         return next();
       }
       return res.status(404).json({
@@ -21,7 +23,7 @@ async function finds_id(req, res, next){
     catch (error) {
       return res.status(500).json({
         success: false,
-        message: [{error: error.message}]
+        message: [error.message]
       })
     }
 }

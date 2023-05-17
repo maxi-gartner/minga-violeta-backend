@@ -10,7 +10,7 @@ export const authCreateSignUp = joi.object({
         'string.email': 'Must be a valid email'
     }),
   password: joi.string()
-    .min(8)
+    .min(4)
     .max(25)
     .required()
     .messages({
@@ -35,7 +35,7 @@ export const authCreateSignIn = joi.object({
       'string.email': 'Must be a valid email'
     }),
   password: joi.string()
-    .min(8)
+    .min(4)
     .max(25)
     .required()
     .messages({
