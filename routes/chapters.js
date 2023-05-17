@@ -21,8 +21,8 @@ router.get('/me', passport.authenticate('jwt', {session: false}), finds_id, isPr
 router.get("/", passport.authenticate('jwt', {session: false}), get_chapters)
 router.post('/', passport.authenticate('jwt', {session: false}), validator(createChapterSchema), chapterExistsCreate, create)
 router.get('/:id', passport.authenticate('jwt', {session: false}), one)
-router.put('/:id', passport.authenticate('jwt', {session: false}), update)
-router.delete('/:id', passport.authenticate('jwt', {session: false}), destroy)
+router.put('/:id', passport.authenticate('jwt', {session: false}), finds_id, isPropertyOf, is_active, update)
+router.delete('/:id', passport.authenticate('jwt', {session: false}),finds_id, isPropertyOf, is_active, destroy)
 
 export default router
 
