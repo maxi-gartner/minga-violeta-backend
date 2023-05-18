@@ -1,17 +1,16 @@
 import Company from '../../models/Company.js'
-import Auth from '../../models/Auth.js'
+import User from '../../models/User.js';
 
 let create = async(req, res, next) => {
     try{
-        console.log(req.body);
         let one = await Company.create(req.body)
-        await Auth.findByIdAndUpdate(
+        await User.findByIdAndUpdate(
             req.user.id,
             {
                 role: 2,
                 photo: req.body.photo
             },
-            { new: true } // devuelve el usuario actualizado en lugar del anterior
+            { new: true }
         );
         return res.status(201).json({
             company: one,

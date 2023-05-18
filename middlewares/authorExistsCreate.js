@@ -7,7 +7,7 @@ async function authorExistsCreate(req,res,next){
     if(author){
         return res.status(400).json({
             success: false,
-            message: ['User already exist!']
+            message: ['Author already exist!']
         })
     }
     return next()
