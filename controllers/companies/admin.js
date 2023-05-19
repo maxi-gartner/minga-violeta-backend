@@ -2,19 +2,11 @@ import Company from '../../models/Company.js'
 
 let admin = async(req, res, next)=> {
     try {
-        let all = await Company.find()
-        all.sort((a, b) => {
-            if (a.active === b.active) {
-                return 0;
-            } else if (a.active) {
-                return 1;
-            } else {
-                return -1;
-            }
-        });
+        let active = await Company.find({ active: true })                           // Utilizo la sintaxis de try/catch para intentar algo y catchear los errores que puedan surgir 
+        let inactive = await Company.find({ active: false })
         return res.status(200)
         .json({
-            companies: all
+            companies: { active, inactive }
         })
     } catch (error) {
         return res.status(400)
