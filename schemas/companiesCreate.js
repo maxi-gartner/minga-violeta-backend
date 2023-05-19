@@ -31,6 +31,5 @@ export const companiesCreate = joi.object({
             'string.min': 'Description too large',
             'string.max': 'Description too large'
         }),
-    active: joi.boolean(),
-    user_id: joi.string(),
+    active: joi.boolean()
 })
