@@ -23,7 +23,7 @@ export let categories = [
     },{
         name: "seinen",
         color: "#FC9C57",
-        hover: "FFDFC8",
+        hover: "#FFDFC8",
         description: "Japanese seinen tells stories with a mature tone. Some frequent themes in the plots are sex, violence and politics.",
         character_photo: "https://i.postimg.cc/6pQ3t28c/seinen-character.png",
         cover_photo: "https://i.postimg.cc/y86JxpbF/seinen-cover.jpg"

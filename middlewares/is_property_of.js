@@ -13,7 +13,7 @@ async function is_property_of(req, res, next){
         }
         return res.status(404).json({
             success: false,
-            message: ['The manga does not belong to the logged in author']
+            message: ['The manga or author does not belong to the logged in author']
         }) 
     } catch (error) {
         console.log(error)

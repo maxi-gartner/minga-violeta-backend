@@ -6,12 +6,12 @@ const update = async(req, res, next) => {
             req.params.id,
             req.body,
             {new: true}
-        )
+        ).populate("category_id")
         if (update){
             return res.status(200).json({
                 success: true,
                 message: ["Manga updated successfully"],
-                update
+                update: update
             })
         }else{
             return res.status(404).json({
