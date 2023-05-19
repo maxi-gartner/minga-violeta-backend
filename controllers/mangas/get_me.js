@@ -6,7 +6,7 @@ let me = async (req, res, next) => {
         console.log(id);
         let me = await Manga.find({
             author_id: id
-        }, "-_id")
+        }).populate("category_id")
         return res.status(200).json({
             success: 'ok',
             response: me
