@@ -2,16 +2,17 @@ import Chapter from "../../models/Chapter.js";
 
 const update = async (req, res, next) => {
     try {
-        let update = await Chapter.updateOne({ _id: req.params.id }, req.body);
-        if (update.modifiedCount) {
+        let response = await Chapter.findOneAndUpdate({ _id: req.params.id }, req.body, {new:true});
+        if (response) {
         return res.status(200).json({
             success: true,
-            response: "updated"
+            message: "updated",
+            response
         });
         } else {
         return res.status(404).json({
             success: false,
-            response: "not found"
+            message: "not found"
         });
         }
     } catch (error) {

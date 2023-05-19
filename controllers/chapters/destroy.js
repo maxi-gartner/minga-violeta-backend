@@ -11,7 +11,7 @@ const destroy = async(req,res,next) => {
         } else {
             return res.status(404).json({
                 success: false,
-                messge: 'not found'
+                message: 'not found'
             })
         }
         
