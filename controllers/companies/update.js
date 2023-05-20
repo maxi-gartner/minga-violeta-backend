@@ -11,7 +11,7 @@ const updateCompanies = async (req, res, next) => {
         )
         if (update?.active === req.body.active) {
             let userUpdate = await User.findByIdAndUpdate(
-                update.user_id, 
+                update.user_id,
                 { role: role }, 
                 { new: true }
             )
