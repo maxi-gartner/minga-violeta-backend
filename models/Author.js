@@ -8,7 +8,7 @@ let schema = new Schema({
     date: {type: Date},
     photo: {type: String, required: true},
     active: {type: Boolean, required: true},
-    user_id: {type: Types.ObjectId, ref: 'users', required: true}
+    user_id: {type: Types.ObjectId, ref: 'users'}
 },{
     timestamps: true,
 }

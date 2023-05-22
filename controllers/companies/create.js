@@ -1,10 +1,10 @@
-import Author from '../../models/Author.js'
+import Company from '../../models/Company.js'
 
 let create = async(req, res, next) => {
     try{
-        let one = await Author.create(req.body)
+        let one = await Company.create(req.body)
         return res.status(201).json({
-            author: one,
+            company: one,
             success: true
         })
     } catch(error){
