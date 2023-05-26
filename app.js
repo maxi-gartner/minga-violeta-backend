@@ -14,6 +14,10 @@ import errorHandler from './middlewares/errorHandler.js'
 
 const app = express();
 
+const loggerOpts = {
+  skip: () => process.env.NODE_ENV === 'test'
+}
+
 // view engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +27,7 @@ app.use((req, res, next) => {
 })
 
 app.use(cors())
-app.use(logger('dev'));
+app.use(logger('dev', loggerOpts));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
