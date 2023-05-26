@@ -2,7 +2,7 @@ import { expect } from "chai";
 import request from "supertest";
 import app from "../app.js"
 
-describe("Test on /mangas path", () =>{
+describe("Test post and delete /mangas path", () =>{
 
     let server = null;
     let api = null;
