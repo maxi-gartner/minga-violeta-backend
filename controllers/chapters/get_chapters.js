@@ -30,6 +30,7 @@ let read = async (req, res, next) => {
         if (all.length > 0) {
             return res.status(200)
                 .json({
+                    success: true,
                     chapters: all
                 })
         }

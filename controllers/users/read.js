@@ -7,6 +7,7 @@ let read = async (req, res, next) => {          //la funcion controladora debe s
         if (all.length > 0) {
             return res.status(200)              //configuro la respuesta que le tengo que enviar al cliente (front)
                 .json({
+                    success: true,
                     users: all
                 })
         }
