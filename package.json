@@ -6,12 +6,14 @@
   "scripts": {
     "start": "node ./bin/www.js",
     "dev": "nodemon ./bin/www.js",
-    "data": "node ./models/data/data.js"
+    "data": "node ./models/data/data.js",
+    "test": "cross-env NODE_ENV=test mocha"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "ejs": "~2.6.1",
@@ -26,6 +28,9 @@
     "passport-jwt": "^4.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3"
   }
 }
