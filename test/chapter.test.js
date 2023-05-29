@@ -7,13 +7,20 @@ describe("Test on /chapter path", () =>{
     let server = null;
     let api = null;
     let token = null;
+<<<<<<< HEAD
     let id = null;
+=======
+>>>>>>> 16a8b1e0b72966848945fb1ac6bc741754dc9bdb
 
     before(async() =>{
         server = await app.listen(8000) 
         api = request(app)
         const user = {
+<<<<<<< HEAD
             email: "lucas@mh.com.ar",
+=======
+            email: "igna@mh.com.ar",
+>>>>>>> 16a8b1e0b72966848945fb1ac6bc741754dc9bdb
             password: "hola1234"
         }
         const userLoged = await api.post(`/auth/signin`)

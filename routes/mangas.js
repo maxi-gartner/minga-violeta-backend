@@ -20,6 +20,6 @@ router.get('/', passport.authenticate('jwt', {session: false}), read)
 router.post('/', passport.authenticate('jwt', {session: false}), validator(mangasCreate), titleExistsCreate, create)
 router.get("/:id",passport.authenticate('jwt', {session: false}), get_one)
 router.put("/:id",passport.authenticate('jwt', {session: false}), validator(mangaEdit),finds_id, is_active, is_property_of,  update)
-router.delete("/:id",passport.authenticate('jwt', {session: false}), finds_id, is_active, is_property_of, destroy)
+router.delete("/:id",passport.authenticate('jwt', {session: false}), finds_id, is_active, destroy)
 
 export default router

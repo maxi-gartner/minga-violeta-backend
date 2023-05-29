@@ -31,6 +31,7 @@ describe("Test post and delete /mangas path", () =>{
             expect(body.response.length).to.be.greaterThan(0)//la longitud del array sea mayor a 0
         })
     })
+
     describe("post / mangas", () =>{
         it("Should create a new manga", async() =>{
 
@@ -54,6 +55,7 @@ describe("Test post and delete /mangas path", () =>{
     })
     describe("delete / mangas", () =>{
         it("Should delete manga", async() =>{
+
             const {statusCode} = await api
                 .delete(`/mangas/${id}`)
                 .set('Authorization', `Bearer ${token}`)
