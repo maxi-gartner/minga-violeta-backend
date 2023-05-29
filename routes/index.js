@@ -5,6 +5,7 @@ import categoryRouter from './categories.js'
 import companyRouter from './companies.js'
 import chapterRouter from './chapters.js'
 import mangaRouter from './mangas.js'
+import donationsRouter from "./donations.js"
 //const express = require('express');
 const router = express.Router();
 
@@ -24,5 +25,6 @@ router.use('/categories',categoryRouter)
 router.use('/companies', companyRouter)
 router.use('/chapters', chapterRouter)
 router.use('/mangas', mangaRouter)
+router.use('/donate', donationsRouter)
 
 export default router;

@@ -13,7 +13,7 @@ async function createTransporter(user) {
             pass: process.env.EMAIL_PW
         },
     })
-
+// linea 27, cambiar por el link del backend hosteado
     const message = await transporter.sendMail({
         from: ' "Minga" <mingasgml@gmail.com>',
         to: user.email,

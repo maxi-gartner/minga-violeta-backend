@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 const verifyEmail = async (req, res, next) => {
     try {
-        const verify_code = req.query.verify_code
+        const verify_code = req.query.verify_code                           //pasar de query a param
         if (!verify_code) {
             return res.status(404).json('Verify code not found')
         }
@@ -16,7 +16,7 @@ const verifyEmail = async (req, res, next) => {
                 process.env.SECRET,
                 { expiresIn: 60 * 60 * 24 }
             )
-            return res.redirect('http://localhost:5173/auth/signin/login')
+            return res.redirect('http://localhost:5173/auth/signin/login')   //cambiar por el link front hosteado
         } else {
             res.status(404).json("Mail's verify or token's validation failed")
         }
