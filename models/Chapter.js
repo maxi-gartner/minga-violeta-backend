@@ -8,7 +8,6 @@ let schema = new Schema ({
     order: { type: Number, required: true},
 },{
     timestamps: true,
-
 })
 let collection = 'chapters'
 
