@@ -13,10 +13,12 @@ import signout from '../controllers/auth/signOut.js';
 import is_admin from '../middlewares/is_admin.js';
 import updateAuthors from '../controllers/authors/update.js';
 import updateCompanies from '../controllers/companies/update.js';
+import verifyEmail from '../controllers/auth/verifyEmail.js';
 
 let router = Router();
 
 router.get("/", read)
+router.get('/verify', verifyEmail)
 router.post('/signup', validator(authCreateSignUp), accountExistsSignUp, create)
 router.post('/signin', validator(authCreateSignIn ), accountExistsSignIn, isVerified, passwordIsOk, signIn)
 router.post('/signout', passport.authenticate('jwt', {session: false}), signout)
